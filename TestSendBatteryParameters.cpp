@@ -6,7 +6,7 @@
 
 TEST_CASE("Test to check Sender") 
 {
-  BatteryChargingParameters batteryChargingParameters;
+  BatteryChargingParameters batteryChargingParameters[STREAM_SIZE];
   readBatteryParametersFromFile(batteryChargingParameters);
   // Send the battery parameters to console
   batteryParametersSender(batteryChargingParameters);
