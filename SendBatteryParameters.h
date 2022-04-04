@@ -1,1 +1,1 @@
-
+void readBatteryParametersFromFile(BatteryChargingParameters *batteryParameters);
