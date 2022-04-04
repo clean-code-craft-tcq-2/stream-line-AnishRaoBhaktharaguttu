@@ -25,7 +25,7 @@ void sendBatteryParametersToConsole(BatteryChargingParameters *batteryParameters
     }
 }
 
-void BatteryParametersSender(BatteryChargingParameters *batteryParameters)
+void batteryParametersSender(BatteryChargingParameters *batteryParameters)
 {
   readBatteryParametersFromFile(batteryParameters);
   sendBatteryParametersToConsole(batteryParameters);
