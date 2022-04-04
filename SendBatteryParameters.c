@@ -17,7 +17,7 @@ void readBatteryParametersFromFile(BatteryChargingParameters *batteryParameters)
     fclose(parametersFile);  
 }
 
-void sendBatteryParametersToConsole(batteryParameters)
+void sendBatteryParametersToConsole(BatteryChargingParameters *batteryParameters)
 {
     for(int i = 0; i<STREAM_SIZE ;i++)
     {
