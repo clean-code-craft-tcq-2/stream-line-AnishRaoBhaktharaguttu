@@ -6,5 +6,6 @@ typedef struct {
   float stateOfCharge;
 } BatteryChargingParameters;
 
-
+void sendBatteryParametersToConsole(batteryParameters);
+void BatteryParametersSender(BatteryChargingParameters *batteryParameters);
 void readBatteryParametersFromFile(BatteryChargingParameters *batteryParameters);
