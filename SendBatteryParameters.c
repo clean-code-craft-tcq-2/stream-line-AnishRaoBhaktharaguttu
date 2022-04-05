@@ -25,6 +25,7 @@ void sendBatteryParametersToConsole(BatteryChargingParameters *batteryParameters
     for(int i = 0; i<STREAM_SIZE ;i++)
     {
      printf(" Temperature: %.3f deg C , State of Charge: %.3f\n",  batteryParameters->temperature, batteryParameters->stateOfCharge);
+     batteryParameters++;
     }
 }
 
