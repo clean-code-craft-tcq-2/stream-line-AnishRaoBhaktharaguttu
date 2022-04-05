@@ -12,10 +12,7 @@ void readBatteryParametersFromFile(BatteryChargingParameters *batteryParameters)
     {
       batteryParameters->temperature = temperature;
       batteryParameters->stateOfCharge = stateOfCharge;
-      printf("Printing from the function\n");
-      printf(" Temperature: %.3f deg C , State of Charge: %.3f\n",  batteryParameters->temperature, batteryParameters->stateOfCharge);
       batteryParameters++;
-      printf("%d", batteryParameters);
     }
     fclose(parametersFile);  
 }
