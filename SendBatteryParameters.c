@@ -10,8 +10,8 @@ void readBatteryParametersFromFile(BatteryChargingParameters *batteryParameters)
     FILE * parametersFile = fopen("batteryParameters.txt","r");  
     for(int j=0;fscanf(parametersFile, "%f\t%f\n", &temperature,&stateOfCharge)!=EOF ;j++)
     {
-      batteryParameters->temperature = temperature;
-      batteryParameters->stateOfCharge = stateOfCharge;
+      batteryParameters->temperature = floorf(temperature * 100) / 100;
+      batteryParameters->stateOfCharge = floorf(stateOfCharge * 100) / 100;
       batteryParameters++;
     }
     fclose(parametersFile);  
