@@ -13,7 +13,7 @@ TEST_CASE("Test to check Sender")
   batteryParametersSender(batteryChargingParameters);
   
   //Read the first and last values of the text file and assert they have been properly added to batteryParameters 
-  float expectedBatteryParameters[2][2] = {{3.42277, 11.06568}, {1.34527, 64.52855}};
+  float expectedBatteryParameters[2][2] = {{3.42, 11.06}, {1.34, 64.52}};
 
    REQUIRE(batteryChargingParameters[0].temperature == expectedBatteryParameters[0][0]);
    REQUIRE(batteryChargingParameters[0].stateOfCharge == expectedBatteryParameters[0][1]);
