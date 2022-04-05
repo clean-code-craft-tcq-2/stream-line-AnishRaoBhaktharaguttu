@@ -8,6 +8,15 @@ TEST_CASE("Test to check Sender")
 {
   BatteryChargingParameters batteryChargingParameters[STREAM_SIZE];
   readBatteryParametersFromFile(batteryChargingParameters);
+  //Read the first and last values of the text file and assert they have been properly added to batteryParameters 
+  float expectedBatteryParameters[2][2] = {{3.422, 11.065}, {1.345, 64.528}};
+
+   REQUIRE(batteryChargingParameters[0].temperature = expectedBatteryParameters[0][0]);
+   REQUIRE(StateOfCharge[batteryChargingParameters[0].stateOfCharge == expectedBatteryParameters[0][1]);
+
+   REQUIRE(batteryChargingParameters[49].temperature = expectedBatteryParameters[1][0]);
+   REQUIRE(StateOfCharge[batteryChargingParameters[49].stateOfCharge == expectedBatteryParameters[1][1]);
+                         
   // Send the battery parameters to console
   batteryParametersSender(batteryChargingParameters);
 }
