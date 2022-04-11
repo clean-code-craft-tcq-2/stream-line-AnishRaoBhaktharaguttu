@@ -1,1 +1,2 @@
 
+void batteryParametersReceiver(BatteryChargingParameters *batteryParameters);
