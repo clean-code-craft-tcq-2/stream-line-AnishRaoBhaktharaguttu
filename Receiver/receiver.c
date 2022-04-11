@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include "SendBatteryParameters.h"
+#include "Receiver.h"
 
-void batteryParametersSender(BatteryChargingParameters *batteryParameters)
+void batteryParametersReceiver(BatteryChargingParameters *batteryParameters)
 {
 
 }
