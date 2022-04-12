@@ -5,7 +5,7 @@
 
 TEST_CASE("Test to check Receiver") 
 {
-   BatteryChargingParameters ReceivedData;
+   BatteryChargingParameters ReceivedData[STREAM_SIZE];
    printf("Temperature: 3.420 deg C , State of Charge: 11.060\n");
    batteryParametersReceiver(ReceivedData);
    REQUIRE(ReceivedData.temperature==3.420);
