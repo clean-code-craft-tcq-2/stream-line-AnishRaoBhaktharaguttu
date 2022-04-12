@@ -5,7 +5,7 @@
 
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
-    char buffer[1000];
+    /*char buffer[1000];
     size_t line = 0;
 
     while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
@@ -21,7 +21,14 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     for (size_t i = 0; i < line; i++) {
         printf("%.3f \t %.3f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
         batteryParameters++;
-    }
+    }*/
+    
+    for (int i = 0; i < 50A; i++)
+	{
+		scanf("%f\t%f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
+        batteryParameters++;
+
+	}
 }
 
 void batteryParametersReceiver(BatteryChargingParameters *batteryParameters)
