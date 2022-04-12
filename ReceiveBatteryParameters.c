@@ -5,20 +5,21 @@
 
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
-    char *buf = NULL;
-    int size;
-    size_t length;
-    size = getline(&buf, &length, stdin);
-    if (size != -1)
-        /* do anything you want with the stuff that was entered here */
-        /* for the example I just write it back to stdout! */
-        puts(buf);
-    else
-        /* this would be your "end" condition */
-        printf("Nothing read!\n");
+    char buffer[1000];
+    int arr[50];
+    size_t line = 0;
 
-    printf("Size: %d\n Length: %d\n", size, length);
-    free(buf);
+    while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
+        if (sscanf(buffer, "%.3f", &arr[line]) != 1) {
+            fprintf(stderr, "Line formatting error\n");
+            exit(EXIT_FAILURE);
+        }
+        ++line;
+    }
+
+    for (size_t i = 0; i < line; i++) {
+        printf("%.2f\n", arr[i]);
+    }
 	
 	
     //char buffer[100];
