@@ -9,6 +9,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     size_t line = 0;
 
     while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
+        printf("%s\n",buffer);
         if (sscanf(buffer, "%.3f   %.3f", batteryParameters->temperature,batteryParameters->stateOfCharge) != 1) {
             fprintf(stderr, "Line formatting error\n");
             exit(EXIT_FAILURE);
