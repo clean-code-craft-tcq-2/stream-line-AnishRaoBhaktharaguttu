@@ -20,7 +20,7 @@ void sendBatteryParametersToConsole(BatteryChargingParameters *batteryParameters
 {
     FILE *endPoint = stdout;
     char buffer[100];
-    char *bufferptr = buffer
+    char *bufferptr = buffer;
     for(int i = 0; i<STREAM_SIZE ;i++)
     {
      sprintf(bufferptr," Temperature: %.3f deg C , State of Charge: %.3f\n",  batteryParameters->temperature, batteryParameters->stateOfCharge);
