@@ -2,8 +2,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include "ReceiveBatteryParameters.h"
-float Temp[BMS_DATA] = {};
-float Soc[BMS_DATA] = {};
+float Temp[50] = {};
+float Soc[50] = {};
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
         for (int i = 0; i < 50; i++)
