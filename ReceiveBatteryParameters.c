@@ -9,7 +9,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     size_t line = 0;
     for (int i = 0; i < 50; i++)
 	{
-         fgets(buffer, sizeof buffer, stdin);
+         scanf("%s\n", &buffer);
          printf("%s\n", buffer);
 	}
     while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
