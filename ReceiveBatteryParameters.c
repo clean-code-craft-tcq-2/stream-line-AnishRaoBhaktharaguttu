@@ -7,7 +7,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
     char *buf = NULL;
     int size;
-    int length;
+    size_t length;
     size = getline(&buf, &length, stdin);
     if (size != -1)
         /* do anything you want with the stuff that was entered here */
