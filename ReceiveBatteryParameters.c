@@ -9,6 +9,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         for (int i = 0; i < 50; i++)
 	{
 		scanf("%f\t%f\n", &Temp[i], &Soc[i]);
+		printf("%f\t%f\n", &Temp[i], &Soc[i])
 	}
 }
 
