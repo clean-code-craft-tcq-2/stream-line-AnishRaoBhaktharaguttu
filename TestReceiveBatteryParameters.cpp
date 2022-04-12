@@ -2,7 +2,6 @@
 
 #include "test-framework/catch.hpp"
 #include "ReceiveBatteryParameters.h"
-#include "SendBatteryParameters.h"
 
 TEST_CASE("Test to check Receiver") 
 {
