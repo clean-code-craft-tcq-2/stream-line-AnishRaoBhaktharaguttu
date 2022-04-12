@@ -23,7 +23,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         batteryParameters++;
     }*/
     
-    for (int i = 0; i < 50A; i++)
+    for (int i = 0; i < 50; i++)
 	{
 		scanf("%f\t%f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
         batteryParameters++;
