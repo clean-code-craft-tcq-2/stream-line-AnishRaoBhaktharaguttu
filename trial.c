@@ -23,7 +23,7 @@ void sendBatteryParametersToConsole(BatteryChargingParameters *batteryParameters
     char *bufferptr = buffer;
     for(int i = 0; i<STREAM_SIZE ;i++)
     {
-     sprintf(bufferptr," Temperature: %.3f deg C , State of Charge: %.3f\n",  batteryParameters->temperature, batteryParameters->stateOfCharge);
+     sprintf(bufferptr,"%.3f\t%.3f",  batteryParameters->temperature, batteryParameters->stateOfCharge);
      fprintf (endPoint,"%s\n", bufferptr);
      batteryParameters++;
     }
