@@ -25,9 +25,9 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     char buffer[1000];
     for (int i = 0; i < 50; i++)
 	{
-		scanf("%s\n", buffer);
-         printf("%s \n", buffer);
-
+         scanf("%f\t%f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
+         printf("read: %f\t read:%f \n", batteryParameters->temperature,batteryParameters->stateOfCharge);
+         batteryParameters++;
 	}
 }
 
