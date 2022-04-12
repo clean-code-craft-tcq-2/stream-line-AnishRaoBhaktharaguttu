@@ -7,7 +7,11 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
     char buffer[1000];
     size_t line = 0;
-
+    for (int i = 0; i < 50; i++)
+	{
+         fgets(buffer, sizeof buffer, stdin);
+         printf("%s\n", buffer);
+	}
     while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
         printf("%s\n",buffer);
         if (sscanf(buffer, "%.3f   %.3f", batteryParameters->temperature,batteryParameters->stateOfCharge) != 1) {
