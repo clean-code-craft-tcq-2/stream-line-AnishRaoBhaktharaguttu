@@ -22,11 +22,11 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         printf("%.3f \t %.3f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
         batteryParameters++;
     }*/
-    
+    char buffer[1000];
     for (int i = 0; i < 50; i++)
 	{
-		scanf("%f\t%f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
-        batteryParameters++;
+		scanf("%s\n", buffer);
+         printf("%s \n", buffer);
 
 	}
 }
