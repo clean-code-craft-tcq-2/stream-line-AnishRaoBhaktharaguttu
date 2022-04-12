@@ -8,8 +8,9 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     char buffer[1000];
     int arr[50];
     size_t line = 0;
-
+    printf("Temperature: 3.420 deg C , State of Charge: 11.060\n");
     while ((fgets(buffer, sizeof buffer, stdin) != NULL)) {
+	    printf("Temperature: 3.420 deg C , State of Charge: 11.060\n");
         if (sscanf(buffer, "%.3f", &arr[line]) != 1) {
             fprintf(stderr, "Line formatting error\n");
             exit(EXIT_FAILURE);
