@@ -7,7 +7,8 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {
   for (int i = 0; i < STREAM_SIZE; i++)
 	{
-		scanf("%f\t%f\n", &batteryParameters[i].temperature, &batteryParameters[i].stateOfCharge);
+		scanf("%f\t%f\n", batteryParameters->temperature, batteryParameters->stateOfCharge);
+	        batteryParameters++;
 	}
   
 }
