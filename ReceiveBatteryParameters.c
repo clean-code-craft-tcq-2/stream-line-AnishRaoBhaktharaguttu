@@ -4,11 +4,10 @@
 #include "ReceiveBatteryParameters.h"
 
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
-{
-    printf("Number: %d\n", batteryParameters->temperature);	
+{	
     char buffer[100];
     while(fgets(buffer, sizeof buffer, stdin) != NULL) {
-        if(sscanf(buffer, "%f", batteryParameters->temperature) != 1) {    // or strtol perhaps
+        if(sscanf(buffer, "%.3f", batteryParameters->temperature) != 1) {    // or strtol perhaps
             break;
         }
         printf("Number: %d\n", batteryParameters->temperature);
