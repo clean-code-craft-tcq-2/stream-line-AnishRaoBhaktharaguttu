@@ -18,7 +18,8 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     }
 
     for (size_t i = 0; i < line; i++) {
-        printf("%5d\n", arr[i]);
+        printf("%.3f \t %.3f\n", batteryParameters->temperature,batteryParameters->stateOfCharge);
+        batteryParameters++;
     }
 }
 
