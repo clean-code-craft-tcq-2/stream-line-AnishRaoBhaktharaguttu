@@ -8,9 +8,8 @@ TEST_CASE("Test to check Receiver")
 { 
    BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE];
    ReadDataFromConsole(ReceivedData);
-    float Temperature, StateOfCharge,ChargeRate;
+   float Temperature, StateOfCharge,ChargeRate;
     
-    }
    FILE * file= fopen("./Sender/Sender.txt","r");                                                                  
    for(int i = 0 ; i < STREAM_SIZE; i++)
    {
