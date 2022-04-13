@@ -15,7 +15,7 @@ TEST_CASE("Test to check Receiver")
    {
      if (file!=NULL) 
      {
-        for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge)!=EOF ;i++)
+        for(int i=0;fscanf(file, "%f\t%f\n", &Temperature,&StateOfCharge)!=EOF ;i++)
         {
             ExpectedData[i].temperature = Temperature;
             ExpectedData[i].stateOfCharge = StateOfCharge;
