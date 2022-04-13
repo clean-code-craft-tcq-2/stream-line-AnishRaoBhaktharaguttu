@@ -10,7 +10,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
    {  
         if(scanf("%50s", ReadString) == EOF)
 	{
-		break;
+		//break;
 	}
 	scanf("%50s", ReadString);
         scanf("%.3f", batteryParameters->temperature);
