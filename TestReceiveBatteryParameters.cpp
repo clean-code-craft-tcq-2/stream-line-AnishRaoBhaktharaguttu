@@ -13,12 +13,14 @@ TEST_CASE("Test to check Receiver")
    FILE * file= fopen("./Sender/Sender.txt","r");                                                                  
    for(int i = 0 ; i < STREAM_SIZE; i++)
    {
-     if (file!=NULL) {
+     if (file!=NULL) 
+     {
         for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge)!=EOF ;i++)
         {
             ExpectedData[i].temperature = Temperature;
             ExpectedData[i].stateOfCharge = StateOfCharge;
         }
+     }
        
      REQUIRE(ReceivedData[i].temperature==ExpectedData[i].temperature);
      REQUIRE(ReceivedData[i].stateOfCharge==ExpectedData[i].stateOfCharge);
