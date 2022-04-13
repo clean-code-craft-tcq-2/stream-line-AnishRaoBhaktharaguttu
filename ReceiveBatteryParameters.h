@@ -5,3 +5,4 @@
 #include <math.h>
 #include "SendBatteryParameters.h"
 void batteryParametersReceiver(BatteryChargingParameters *batteryParameters);
+void ReadDataFromConsole(BatteryChargingParameters *batteryParameters);
