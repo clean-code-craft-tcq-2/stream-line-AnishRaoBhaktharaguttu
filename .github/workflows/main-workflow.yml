@@ -19,13 +19,13 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testsender TestSendBatteryParameters.cpp SendBatteryParameters.c
   
       
-    - name: run sender
-      run: ./testsender
-      
+
     - name: build receiver
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testreceiver TestReceiveBatteryParameters.cpp ReceiveBatteryParameters.c
   
-      
+    - name: run sender
+      run: ./testsender
+         
     - name: run receiver
       run: ./testreceiver
 
