@@ -13,7 +13,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         if(scanf("%50s", ReadString) == EOF)
 	{
 		//printf("HI 3\n");
-		break;
+		//break;
 	}
 	//printf("HI 4\n");
 	//scanf("%50s", ReadString);
