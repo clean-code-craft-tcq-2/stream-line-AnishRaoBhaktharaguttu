@@ -6,16 +6,16 @@
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
     char ReadString[400];
-    printf("HI 1\n");
+    //printf("HI 1\n");
     for(int i = 0; i < STREAM_SIZE ; i++)
     {  
-	printf("HI 2\n");
+	//printf("HI 2\n");
         if(scanf("%50s", ReadString) == EOF)
 	{
-		printf("HI 3\n");
+		//printf("HI 3\n");
 		break;
 	}
-	printf("HI 4\n");
+	//printf("HI 4\n");
 	scanf("%50s", ReadString);
         scanf("%f", batteryParameters->temperature);
         scanf("%50s", ReadString); //deg
