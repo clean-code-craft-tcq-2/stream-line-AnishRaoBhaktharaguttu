@@ -6,7 +6,7 @@
 
 TEST_CASE("Test to check Receiver") 
 { 
-   BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE};
+   BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE];
    ReadDataFromConsole(ReceivedData);
     float Temperature, StateOfCharge,ChargeRate;
     
