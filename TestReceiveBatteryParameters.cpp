@@ -10,7 +10,7 @@ TEST_CASE("Test to check Receiver")
    ReadDataFromConsole(ReceivedData);
    float Temperature, StateOfCharge,ChargeRate;
     
-   FILE * file= fopen("./Sender/Sender.txt","r");                                                                  
+   FILE * file= fopen("batteryParameters.txt","r");                                                                  
    for(int i = 0 ; i < STREAM_SIZE; i++)
    {
      if (file!=NULL) 
