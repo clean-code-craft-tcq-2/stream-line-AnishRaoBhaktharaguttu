@@ -13,14 +13,14 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         {
             break;
         }
-        scanf("%f", batteryParameters->temperature);
+        scanf("%f", &(batteryParameters->temperature));
         scanf("%50s", ReadString); //deg
         scanf("%50s", ReadString); //C
         scanf("%50s", ReadString); //,
         scanf("%50s", ReadString); // State
         scanf("%50s", ReadString); //of
         scanf("%50s", ReadString); //charge:
-        scanf("%f", batteryParameters->stateOfCharge);
+        scanf("%f", &(batteryParameters->stateOfCharge));
 	printf("%.3f \t %.3f\n",batteryParameters->temperature,batteryParameters->stateOfCharge);
 	batteryParameters++;
    }
