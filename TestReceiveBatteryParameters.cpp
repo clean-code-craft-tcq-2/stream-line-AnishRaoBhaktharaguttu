@@ -22,8 +22,8 @@ TEST_CASE("Test to check Receiver")
         }
      }
        
-     REQUIRE(ReceivedData[i].temperature==ExpectedData[i].temperature);
-     REQUIRE(ReceivedData[i].stateOfCharge==ExpectedData[i].stateOfCharge);
+     REQUIRE( (ReceivedData[i].temperature - ExpectedData[i].temperature) <= 0.001);
+     REQUIRE( (ReceivedData[i].stateOfCharge - ExpectedData[i].stateOfCharge) <= 0.001);
    }
    fclose(file);
 }
