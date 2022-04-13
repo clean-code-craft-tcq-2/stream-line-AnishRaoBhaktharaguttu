@@ -16,7 +16,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 		break;
 	}
 	//printf("HI 4\n");
-	scanf("%50s", ReadString);
+	//scanf("%50s", ReadString);
         scanf("%f", batteryParameters->temperature);
         scanf("%50s", ReadString); //deg
         scanf("%50s", ReadString); //C
