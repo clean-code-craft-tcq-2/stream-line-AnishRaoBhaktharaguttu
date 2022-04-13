@@ -6,7 +6,7 @@
 void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 {	
     char ReadString[400];
-    for(int i = 0; i < streamSize; i++)
+    for(int i = 0; i < STREAM_SIZE ; i++)
     {
         if(scanf("%50s", ignoreString) != EOF)
 	{
