@@ -8,8 +8,10 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
     char ReadString[400];
     for(int i = 0; i < STREAM_SIZE ; i++)
     {
-        if(scanf("%50s", ReadString) != EOF)
+        if(scanf("%50s", ReadString) == EOF)
 	{
+		break;
+	}
         scanf("%f", batteryParameters->temperature);
         scanf("%50s", ReadString); //deg
         scanf("%50s", ReadString); //C
@@ -19,7 +21,6 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
         scanf("%50s", ReadString); //charge:
         scanf("%f", batteryParameters->stateOfCharge);
 	printf("%.2f\t%.2f\n",batteryParameters->temperature,batteryParameters->stateOfCharge);
-        }
 	batteryParameters++;
     }
 }
