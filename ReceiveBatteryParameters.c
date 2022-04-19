@@ -71,7 +71,7 @@ BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *batt
 	batteryParameters++;    
     }
     AvgValues.temperature = Sum.temperature/ STREAM_SIZE;
-    AvgValues.temperature = Sum.temperature/ STREAM_SIZE;
+    AvgValues.stateOfCharge = Sum.stateOfCharge/ STREAM_SIZE;
     return AvgValues;
 }
 
