@@ -31,7 +31,7 @@ TEST_CASE("Test to check Receiver")
     Avg = ComputeAvgBMSParameter(ReceivedData);
     REQUIRE( abs(Min.temperature - 1.030 ) <=0.001);
     REQUIRE( abs(Max.temperature - 47.960 ) <=0.001);
-    REQUIRE( abs(Avg.temperature - 24.887 ) <=0.001);
+    REQUIRE( abs(Avg.temperature - 24.587 ) <=0.001);
     REQUIRE( abs(Min.stateOfCharge - 3.910 ) <=0.001);
     REQUIRE( abs(Max.stateOfCharge - 78.830 ) <=0.001);
     REQUIRE( abs(Avg.stateOfCharge - 39.499 ) <=0.001);
