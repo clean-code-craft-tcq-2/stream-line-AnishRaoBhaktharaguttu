@@ -28,7 +28,7 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
 
 BatteryChargingParameters ComputeMinBMSParameter(BatteryChargingParameters *batteryParameters)
 {
-    BatteryChargingParameters MinValues={0};
+    BatteryChargingParameters MinValues={batteryParameters->temperature,batteryParameters->stateOfCharge};
     for(int i = 0; i < STREAM_SIZE; i++){
         if(batteryParameters->temperature < MinValues.temperature)
 	{
