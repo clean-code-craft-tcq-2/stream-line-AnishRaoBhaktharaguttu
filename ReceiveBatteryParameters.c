@@ -57,9 +57,31 @@ BatteryChargingParameters ComputeMaxBMSParameter(BatteryChargingParameters *batt
         }
 	batteryParameters++;    
     }
-	return MinValues;
+	return MaxValues;
 }
+
+BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *batteryParameters)
+{
+    BatteryChargingParameters AvgValues={0};
+    BatteryChargingParameters Sum={0};
+    for(int i = 0; i < STREAM_SIZE; i++)
+    {
+        Sum.temperature= Sum.temperature + batteryParameters->temperature;
+	Sum.stateOfCharge= Sum.stateOfCharge + batteryParameters->stateOfCharge;
+	batteryParameters++;    
+    }
+    AvgValues.temperature = Sum.temperature/ STREAM_SIZE;
+    AvgValues.temperature = Sum.temperature/ STREAM_SIZE;
+    return AvgValues;
+}
+
 void batteryParametersReceiver(BatteryChargingParameters *batteryParameters)
 {
     ReadDataFromConsole(batteryParameters);
+    BatteryChargingParameters MinValue,MaxValue,AvgValue;
+    MinValue = ComputeMinBMSParameter(batteryParameters);
+    MaxValue = ComputeMaxBMSParameter(batteryParameters);
+    AvgValue = ComputeAvgBMSParameter(batteryParameters);
+    printf(" From the received data, The Maximum, Minimum and Average value of temperature is %.2f %.2f %.2f respectively
+	   and Maximum, Minimum and Average value of state of charge is %.2f &.2f %.2f respectively\n",MaxValue.temperature,MinValue.temperature,AvgValue.temperature,MaxValue.stateOfCharge,MinValue.stateOfCharge,AvgValue.stateOfCharge);
 }
