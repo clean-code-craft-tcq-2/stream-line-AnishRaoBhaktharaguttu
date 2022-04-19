@@ -29,11 +29,11 @@ TEST_CASE("Test to check Receiver")
     Min= ComputeMinBMSParameter(ReceivedData);
     Max = ComputeMaxBMSParameter(ReceivedData);
     Avg = ComputeAvgBMSParameter(ReceivedData);
-    REQUIRE( (Min.temperature - 0 ) <=0.001);
-    REQUIRE( (Max.temperature - 0 ) <=0.001);
+    REQUIRE( (Min.temperature - 1.030 ) <=0.001);
+    REQUIRE( (Max.temperature - 47.960 ) <=0.001);
     REQUIRE( (Avg.temperature - 0 ) <=0.001);
-    REQUIRE( (Min.stateOfCharge - 0 ) <=0.001);
-    REQUIRE( (Max.stateOfCharge - 0 ) <=0.001);
+    REQUIRE( (Min.stateOfCharge - 3.910 ) <=0.001);
+    REQUIRE( (Max.stateOfCharge - 78.830 ) <=0.001);
     REQUIRE( (Avg.stateOfCharge - 0 ) <=0.001);
    
 }
