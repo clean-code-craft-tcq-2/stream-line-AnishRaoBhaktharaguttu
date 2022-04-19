@@ -6,7 +6,7 @@
 
 TEST_CASE("Test to check Receiver") 
 { 
-   BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE];
+   BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE], Max, Min,Avg;
    ReadDataFromConsole(ReceivedData);
    float Temperature, StateOfCharge,ChargeRate;
     
@@ -26,4 +26,14 @@ TEST_CASE("Test to check Receiver")
      REQUIRE( (ReceivedData[i].stateOfCharge - ExpectedData[i].stateOfCharge) <= 0.001);
    }
    fclose(file);
+    Min= ComputeMinBMSParameter(ReceivedData);
+    Max = ComputeMaxBMSParameter(ReceivedData);
+    Avg = ComputeAvgBMSParameter(ReceivedData);
+    REQUIRE( (Min.temperature - 0 ) <=0.001);
+    REQUIRE( (Max.temperature - 0 ) <=0.001);
+    REQUIRE( (Avg.temperature - 0 ) <=0.001);
+    REQUIRE( (Min.stateOfCharge - 0 ) <=0.001);
+    REQUIRE( (Max.stateOfCharge - 0 ) <=0.001);
+    REQUIRE( (Avg.stateOfCharge - 0 ) <=0.001);
+   
 }
