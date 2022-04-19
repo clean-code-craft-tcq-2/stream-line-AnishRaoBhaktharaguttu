@@ -29,12 +29,12 @@ TEST_CASE("Test to check Receiver")
     Min= ComputeMinBMSParameter(ReceivedData);
     Max = ComputeMaxBMSParameter(ReceivedData);
     Avg = ComputeAvgBMSParameter(ReceivedData);
-    REQUIRE( (Min.temperature - 1.030 ) <=0.001);
-    REQUIRE( (Max.temperature - 47.960 ) <=0.001);
-    REQUIRE( (Avg.temperature - 24.887 ) <=0.001);
-    REQUIRE( (Min.stateOfCharge - 3.910 ) <=0.001);
-    REQUIRE( (Max.stateOfCharge - 78.830 ) <=0.001);
-    REQUIRE( (Avg.stateOfCharge - 0 ) <=0.001);
+    REQUIRE( abs(Min.temperature - 1.030 ) <=0.001);
+    REQUIRE( abs(Max.temperature - 47.960 ) <=0.001);
+    REQUIRE( abs(Avg.temperature - 24.887 ) <=0.001);
+    REQUIRE( abs(Min.stateOfCharge - 3.910 ) <=0.001);
+    REQUIRE( abs(Max.stateOfCharge - 78.830 ) <=0.001);
+    REQUIRE( abs(Avg.stateOfCharge - 39.499 ) <=0.001);
     printf(" From the received data, The Maximum, Minimum and Average value of temperature is %.2f %.2f %.2f respectively and Maximum, Minimum and Average value of state of charge is %.2f %.2f %.2f respectively\n",Max.temperature,Min.temperature,Avg.temperature,Max.stateOfCharge,Min.stateOfCharge,Avg.stateOfCharge);
 
 }
