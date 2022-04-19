@@ -35,5 +35,6 @@ TEST_CASE("Test to check Receiver")
     REQUIRE( (Min.stateOfCharge - 3.910 ) <=0.001);
     REQUIRE( (Max.stateOfCharge - 78.830 ) <=0.001);
     REQUIRE( (Avg.stateOfCharge - 0 ) <=0.001);
-   
+    printf(" From the received data, The Maximum, Minimum and Average value of temperature is %.2f %.2f %.2f respectively and Maximum, Minimum and Average value of state of charge is %.2f %.2f %.2f respectively\n",Max.temperature,Min.temperature,Avg.temperature,Max.stateOfCharge,Min.stateOfCharge,Avg.stateOfCharge);
+
 }
