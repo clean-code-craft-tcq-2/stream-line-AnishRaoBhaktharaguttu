@@ -26,6 +26,39 @@ void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
    }
 }
 
+BatteryChargingParameters ComputeMinBMSParameter(BatteryChargingParameters *batteryParameters)
+{
+    BatteryChargingParameters MinValues={0};
+    for(int i = 0; i < STREAM_SIZE; i++){
+        if(batteryParameters->temperature < MinValues.temperature)
+	{
+            MinValues.temperature=batteryParameters->temperature;
+        }
+	if(batteryParameters->stateOfCharge < MinValues.stateOfCharge)
+	{
+            MinValues.stateOfCharge=batteryParameters->stateOfCharge;
+        }
+	batteryParameters++;    
+    }
+	return MinValues;
+}
+
+BatteryChargingParameters ComputeMaxBMSParameter(BatteryChargingParameters *batteryParameters)
+{
+    BatteryChargingParameters MaxValues={batteryParameters->temperature,batteryParameters->stateOfCharge};
+    for(int i = 0; i < STREAM_SIZE; i++){
+        if(batteryParameters->temperature > MaxValues.temperature)
+	{
+            MaxValues.temperature=batteryParameters->temperature;
+        }
+	if(batteryParameters->stateOfCharge > MaxValues.stateOfCharge)
+	{
+            MaxValues.stateOfCharge=batteryParameters->stateOfCharge;
+        }
+	batteryParameters++;    
+    }
+	return MinValues;
+}
 void batteryParametersReceiver(BatteryChargingParameters *batteryParameters)
 {
     ReadDataFromConsole(batteryParameters);
