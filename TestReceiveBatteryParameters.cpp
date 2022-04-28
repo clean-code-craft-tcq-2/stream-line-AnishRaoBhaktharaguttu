@@ -8,17 +8,17 @@ TEST_CASE("Test to check Receiver")
 { 
    BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE], Max, Min,Avg;
    ReadDataFromConsole(ReceivedData);
-   float Temperature, StateOfCharge,ChargeRate;
+   float Temperature_loc, StateOfCharge_loc;
     
    FILE * file= fopen("./batteryParameters.txt","r");                                                                  
    for(int i = 0 ; i < STREAM_SIZE; i++)
    {
      if (file!=NULL) 
      {
-        for(int i=0;fscanf(file, "%f\t%f\n", &Temperature,&StateOfCharge)!=EOF ;i++)
+        for(int i=0;fscanf(file, "%f\t%f\n", &Temperature_loc,&StateOfCharge_loc)!=EOF ;i++)
         {
-            ExpectedData[i].temperature = Temperature;
-            ExpectedData[i].stateOfCharge = StateOfCharge;
+            ExpectedData[i].temperature = Temperature_loc;
+            ExpectedData[i].stateOfCharge = StateOfCharge_loc;
         }
      }
        
@@ -26,9 +26,9 @@ TEST_CASE("Test to check Receiver")
      REQUIRE( (ReceivedData[i].stateOfCharge - ExpectedData[i].stateOfCharge) <= 0.001);
    }
    fclose(file);
-    Min= ComputeMinBMSParameter(ReceivedData);
-    Max = ComputeMaxBMSParameter(ReceivedData);
-    Avg = ComputeAvgBMSParameter(ReceivedData);
+    Min= ComputeMinBMS_Data(ReceivedData);
+    Max = ComputeMaxBMS_Data(ReceivedData);
+    Avg = ComputeAvgBMS_Data(ReceivedData);
     REQUIRE( abs(Min.temperature - 1.030 ) <=0.001);
     REQUIRE( abs(Max.temperature - 47.960 ) <=0.001);
     REQUIRE( abs(Avg.temperature - 24.587 ) <=0.001);
