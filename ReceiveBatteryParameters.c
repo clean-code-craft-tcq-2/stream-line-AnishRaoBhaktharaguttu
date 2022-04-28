@@ -99,7 +99,7 @@ void ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int Window
         AvgValues.temperature = Sum.temperature / WindowSize;
         AvgValues.stateOfCharge = Sum.stateOfCharge / WindowSize;
     }
-	printf("Mobving avearge : %.2f   %.2f \n, AvgValues.temperature,AvgValues.stateOfCharge);
+	printf("Mobving avearge : %.2f   %.2f \n", AvgValues.temperature,AvgValues.stateOfCharge);
     //return AvgValues;
 }
 
