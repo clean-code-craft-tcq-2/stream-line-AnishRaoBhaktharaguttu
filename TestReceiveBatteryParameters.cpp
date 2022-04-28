@@ -7,6 +7,7 @@
 TEST_CASE("Test to check Receiver") 
 { 
    BatteryChargingParameters ReceivedData[STREAM_SIZE], ExpectedData[STREAM_SIZE], Max, Min,Avg,MovingAvg[STREAM_SIZE];
+   BatteryChargingParameters *MvgAvgPtr = MovingAvg;
    ReadDataFromConsole(ReceivedData);
    float Temperature_loc, StateOfCharge_loc;
     
@@ -29,7 +30,7 @@ TEST_CASE("Test to check Receiver")
     Min= ComputeMinBMS_Data(ReceivedData);
     Max = ComputeMaxBMS_Data(ReceivedData);
     Avg = ComputeAvgBMS_Data(ReceivedData);
-    MovingAvg = ComputeMovingAvgBMS_Data(ReceivedData,5);
+    MvgAvgPtr = ComputeMovingAvgBMS_Data(ReceivedData,5);
    
     REQUIRE( abs(Min.temperature - 1.030 ) <=0.001);
     REQUIRE( abs(Max.temperature - 47.960 ) <=0.001);
