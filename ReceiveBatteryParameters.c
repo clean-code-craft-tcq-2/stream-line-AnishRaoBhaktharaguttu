@@ -77,7 +77,7 @@ void BMS_Receiver(BatteryChargingParameters *BMS_DataPtr)
 {
     ReadDataFromConsole(BMS_DataPtr);
     BatteryChargingParameters MinValue,MaxValue,AvgValue;
-    MinValue = ComputeMinBMSParameter(BMS_DataPtr);
-    MaxValue = ComputeMaxBMSParameter(BMS_DataPtr);
-    AvgValue = ComputeAvgBMSParameter(BMS_DataPtr);
+    MinValue = ComputeMinBMS_Data(BMS_DataPtr);
+    MaxValue = ComputeMaxBMS_Data(BMS_DataPtr);
+    AvgValue = ComputeAvgBMS_Data(BMS_DataPtr);
 }
