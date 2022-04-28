@@ -9,4 +9,4 @@ void ReadDataFromConsole(BatteryChargingParameters *BMS_DataPtr);
 BatteryChargingParameters ComputeMinBMS_Data(BatteryChargingParameters *BMS_DataPtr);
 BatteryChargingParameters ComputeMaxBMS_Data(BatteryChargingParameters *BMS_DataPtr);
 BatteryChargingParameters ComputeAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr);
-BatteryChargingParameters ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int WindowSize);
+BatteryChargingParameters ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr,BatteryChargingParameters *MvgAvrPtr, int WindowSize);
