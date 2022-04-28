@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include "SendBatteryParameters.h"
-void batteryParametersReceiver(BatteryChargingParameters *batteryParameters);
-void ReadDataFromConsole(BatteryChargingParameters *batteryParameters);
-BatteryChargingParameters ComputeMinBMSParameter(BatteryChargingParameters *batteryParameters);
-BatteryChargingParameters ComputeMaxBMSParameter(BatteryChargingParameters *batteryParameters);
-BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *batteryParameters);
+void BMS_Receiver(BatteryChargingParameters *BMS_DataPtr);
+void ReadDataFromConsole(BatteryChargingParameters *BMS_DataPtr);
+BatteryChargingParameters ComputeMinBMS_Data(BatteryChargingParameters *BMS_DataPtr);
+BatteryChargingParameters ComputeMaxBMS_Data(BatteryChargingParameters *BMS_DataPtr);
+BatteryChargingParameters ComputeAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr);
