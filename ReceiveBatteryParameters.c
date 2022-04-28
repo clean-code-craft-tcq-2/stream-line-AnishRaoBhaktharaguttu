@@ -3,83 +3,81 @@
 #include <stdlib.h>
 #include "ReceiveBatteryParameters.h"
 
-void ReadDataFromConsole(BatteryChargingParameters *batteryParameters)
+void ReadDataFromConsole(BatteryChargingParameters *BMS_DataPtr)
 {	
     char ReadString[400];
     for(int i = 0; i < STREAM_SIZE ; i++)
    {  
-	//scanf("%50s", ReadString);
 	if(scanf("%50s", ReadString) == EOF) 
         {
             break;
         }
-        scanf("%f", &(batteryParameters->temperature));
+        scanf("%f", &(BMS_DataPtr->temperature));
         scanf("%50s", ReadString); //deg
         scanf("%50s", ReadString); //C
         scanf("%50s", ReadString); //,
         scanf("%50s", ReadString); // State
         scanf("%50s", ReadString); //of
         scanf("%50s", ReadString); //charge:
-        scanf("%f", &(batteryParameters->stateOfCharge));
-	//printf("%.3f \t %.3f\n",batteryParameters->temperature,batteryParameters->stateOfCharge);
-	batteryParameters++;
+        scanf("%f", &(BMS_DataPtr->stateOfCharge));
+	BMS_DataPtr++;
    }
 }
 
-BatteryChargingParameters ComputeMinBMSParameter(BatteryChargingParameters *batteryParameters)
+BatteryChargingParameters ComputeMinBMS_Data(BatteryChargingParameters *BMS_DataPtr)
 {
-    BatteryChargingParameters MinValues={batteryParameters->temperature,batteryParameters->stateOfCharge};
+    BatteryChargingParameters MinValues={BMS_DataPtr->temperature,BMS_DataPtr->stateOfCharge};
     for(int i = 0; i < STREAM_SIZE; i++){
-        if(batteryParameters->temperature < MinValues.temperature)
+        if(BMS_DataPtr->temperature < MinValues.temperature)
 	{
-            MinValues.temperature=batteryParameters->temperature;
+            MinValues.temperature=BMS_DataPtr->temperature;
         }
-	if(batteryParameters->stateOfCharge < MinValues.stateOfCharge)
+	if(BMS_DataPtr->stateOfCharge < MinValues.stateOfCharge)
 	{
-            MinValues.stateOfCharge=batteryParameters->stateOfCharge;
+            MinValues.stateOfCharge=BMS_DataPtr->stateOfCharge;
         }
-	batteryParameters++;    
+	BMS_DataPtr++;    
     }
 	return MinValues;
 }
 
-BatteryChargingParameters ComputeMaxBMSParameter(BatteryChargingParameters *batteryParameters)
+BatteryChargingParameters ComputeMaxBMS_Data(BatteryChargingParameters *BMS_DataPtr)
 {
-    BatteryChargingParameters MaxValues={batteryParameters->temperature,batteryParameters->stateOfCharge};
+    BatteryChargingParameters MaxValues={BMS_DataPtr->temperature,BMS_DataPtr->stateOfCharge};
     for(int i = 0; i < STREAM_SIZE; i++){
-        if(batteryParameters->temperature > MaxValues.temperature)
+        if(BMS_DataPtr->temperature > MaxValues.temperature)
 	{
-            MaxValues.temperature=batteryParameters->temperature;
+            MaxValues.temperature=BMS_DataPtr->temperature;
         }
-	if(batteryParameters->stateOfCharge > MaxValues.stateOfCharge)
+	if(BMS_DataPtr->stateOfCharge > MaxValues.stateOfCharge)
 	{
-            MaxValues.stateOfCharge=batteryParameters->stateOfCharge;
+            MaxValues.stateOfCharge=BMS_DataPtr->stateOfCharge;
         }
-	batteryParameters++;    
+	BMS_DataPtr++;    
     }
 	return MaxValues;
 }
 
-BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *batteryParameters)
+BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *BMS_DataPtr)
 {
     BatteryChargingParameters AvgValues={0};
     BatteryChargingParameters Sum={0};
     for(int i = 0; i < STREAM_SIZE; i++)
     {
-        Sum.temperature= Sum.temperature + batteryParameters->temperature;
-	Sum.stateOfCharge= Sum.stateOfCharge + batteryParameters->stateOfCharge;
-	batteryParameters++;    
+        Sum.temperature= Sum.temperature + BMS_DataPtr->temperature;
+	Sum.stateOfCharge= Sum.stateOfCharge + BMS_DataPtr->stateOfCharge;
+	BMS_DataPtr++;    
     }
     AvgValues.temperature = Sum.temperature/ STREAM_SIZE;
     AvgValues.stateOfCharge = Sum.stateOfCharge/ STREAM_SIZE;
     return AvgValues;
 }
 
-void batteryParametersReceiver(BatteryChargingParameters *batteryParameters)
+void BMS_Receiver(BatteryChargingParameters *BMS_DataPtr)
 {
-    ReadDataFromConsole(batteryParameters);
+    ReadDataFromConsole(BMS_DataPtr);
     BatteryChargingParameters MinValue,MaxValue,AvgValue;
-    MinValue = ComputeMinBMSParameter(batteryParameters);
-    MaxValue = ComputeMaxBMSParameter(batteryParameters);
-    AvgValue = ComputeAvgBMSParameter(batteryParameters);
+    MinValue = ComputeMinBMSParameter(BMS_DataPtr);
+    MaxValue = ComputeMaxBMSParameter(BMS_DataPtr);
+    AvgValue = ComputeAvgBMSParameter(BMS_DataPtr);
 }
