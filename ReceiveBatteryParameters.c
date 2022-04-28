@@ -73,8 +73,7 @@ BatteryChargingParameters ComputeAvgBMS_Data(BatteryChargingParameters *BMS_Data
     return AvgValues;
 }
 
-//BatteryChargingParameters 
-void ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int WindowSize)
+//BatteryChargingParameters ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int WindowSize)
 {
     BatteryChargingParameters MovingAvgValues[STREAM_SIZE]={0};
     BatteryChargingParameters Sum={0};
@@ -92,10 +91,9 @@ void ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int Window
 	Sum.stateOfCharge += (BMS_DataPtr+i)->stateOfCharge;
         MovingAvgValues[i].temperature = Sum.temperature / WindowSize;
         MovingAvgValues[i].stateOfCharge = Sum.stateOfCharge / WindowSize;
-	printf("Mobving avearge : %.2f   %.2f \n", MovingAvgValues[i].temperature,MovingAvgValues[i].stateOfCharge);
+	//printf("Moving average : Temperature-> %.2f   State of Charge-> %.2f \n", MovingAvgValues[i].temperature,MovingAvgValues[i].stateOfCharge);
     }
-	
-    //return AvgValues;
+	return MovingAvgValues;
 }
 
 
