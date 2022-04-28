@@ -78,24 +78,18 @@ void ComputeMovingAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr, int Window
 {
     BatteryChargingParameters AvgValues={0};
     BatteryChargingParameters Sum={0};
-    
-	
-	int i;
- 
     // Initial sum of K elements.
-    for (i = 0; i < WindowSize; i++) {
-        Sum.temperature= Sum.temperature + BMS_DataPtr->temperature;
-	Sum.stateOfCharge= Sum.stateOfCharge + BMS_DataPtr->stateOfCharge;
-	BMS_DataPtr++;
+    for (int i = 0; i < WindowSize; i++) {
+        Sum.temperature= Sum.temperature + (BMS_DataPtr+i)->temperature;
+	Sum.stateOfCharge= Sum.stateOfCharge + (BMS_DataPtr+i)->stateOfCharge;
     }
  
     // Compute MA from index K
-    float avg;
-    for (i = WindowSize; i < STREAM_SIZE ; i++) {
-        Sum.temperature -=  (BMS_DataPtr-WindowSize)->temperature;
-	Sum.stateOfCharge -=(BMS_DataPtr-WindowSize)->stateOfCharge;
-        Sum.temperature += BMS_DataPtr->temperature;
-	Sum.stateOfCharge += BMS_DataPtr->stateOfCharge;
+    for (int i = WindowSize; i < STREAM_SIZE ; i++) {
+        Sum.temperature -=  (BMS_DataPtr+i-WindowSize)->temperature;
+	Sum.stateOfCharge -=(BMS_DataPtr+i-WindowSize)->stateOfCharge;
+        Sum.temperature += (BMS_DataPtr+i)->temperature;
+	Sum.stateOfCharge += (BMS_DataPtr+i)->stateOfCharge;
         AvgValues.temperature = Sum.temperature / WindowSize;
         AvgValues.stateOfCharge = Sum.stateOfCharge / WindowSize;
     }
