@@ -38,10 +38,10 @@ TEST_CASE("Test to check Receiver")
     REQUIRE( abs(Min.stateOfCharge - 3.910 ) <=0.001);
     REQUIRE( abs(Max.stateOfCharge - 78.830 ) <=0.001);
     REQUIRE( abs(Avg.stateOfCharge - 39.499 ) <=0.001);
-    REQUIRE( abs(MovingAvg[5].temperature - 22.22 ) <=0.001);
-    REQUIRE( abs(MovingAvg[5].stateOfCharge - 28.27 ) <=0.001);
-    REQUIRE( abs(MovingAvg[49].temperature - 22.29 ) <=0.001);
-    REQUIRE( abs(MovingAvg[49].stateOfCharge - 44.68 ) <=0.001);
+    REQUIRE( abs(MovingAvg[0].temperature - 22.22 ) <=0.001);
+    REQUIRE( abs(MovingAvg[0].stateOfCharge - 28.27 ) <=0.001);
+    REQUIRE( abs(MovingAvg[44].temperature - 22.29 ) <=0.001);
+    REQUIRE( abs(MovingAvg[44].stateOfCharge - 44.68 ) <=0.001);
     printf(" From the received data, The Maximum, Minimum and Average value of temperature is %.2f %.2f %.2f respectively and Maximum, Minimum and Average value of state of charge is %.2f %.2f %.2f respectively\n",Max.temperature,Min.temperature,Avg.temperature,Max.stateOfCharge,Min.stateOfCharge,Avg.stateOfCharge);
 
 }
