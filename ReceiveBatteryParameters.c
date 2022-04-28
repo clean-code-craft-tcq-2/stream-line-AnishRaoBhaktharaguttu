@@ -58,7 +58,7 @@ BatteryChargingParameters ComputeMaxBMS_Data(BatteryChargingParameters *BMS_Data
 	return MaxValues;
 }
 
-BatteryChargingParameters ComputeAvgBMSParameter(BatteryChargingParameters *BMS_DataPtr)
+BatteryChargingParameters ComputeAvgBMS_Data(BatteryChargingParameters *BMS_DataPtr)
 {
     BatteryChargingParameters AvgValues={0};
     BatteryChargingParameters Sum={0};
